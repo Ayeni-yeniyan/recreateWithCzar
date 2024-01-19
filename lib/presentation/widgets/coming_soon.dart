@@ -42,36 +42,42 @@ class _ComingSoonState extends State<ComingSoon>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Opacity(
-      opacity: _animation.value,
-      child: Column(
-        children: [
-          Container(height: 100),
-          Image.asset('assets/images/bro.png'),
-          const SizedBox(height: 10),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: CircularProgressIndicator(
-                value: 0.8,
-                color: kPrimaryColorDeep,
-                strokeWidth: 2,
-                strokeCap: StrokeCap.round,
+      body: SafeArea(
+        child: Opacity(
+          opacity: _animation.value,
+          child: Column(
+            children: [
+              Container(height: 100),
+              Image.asset('assets/images/bro.png'),
+              const SizedBox(height: 10),
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                    padding: const EdgeInsets.only(right: 65),
+                    child: Image.asset('assets/images/spinner.png')),
               ),
-            ),
+              Text(
+                'Coming Soon',
+                style: kTitleTextStyle.copyWith(color: kPrimaryColorDeep),
+              ),
+              Text(
+                'We’ll be up soon, keep an eye on us.',
+                style: kSubtitleTextStyle,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 50),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Icon(
+                    Icons.flash_on_rounded,
+                    color: kPrimaryColorDeep,
+                  ),
+                ),
+              )
+            ],
           ),
-          Text(
-            'Coming Soon',
-            style: kTitleTextStyle.copyWith(color: kPrimaryColorDeep),
-          ),
-          Text(
-            'We’ll be up soon, keep an eye on us.',
-            style: kSubtitleTextStyle,
-          )
-        ],
+        ),
       ),
-    )));
+    );
   }
 }
